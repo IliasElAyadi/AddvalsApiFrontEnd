@@ -1,0 +1,12 @@
+<table class="table table-hover">
+    <tr *ngFor="let user of coApiService.list">
+        <td (click)="populateForm(user)">{{user.id}}</td>
+        <td (click)="populateForm(user)">{{user.login}}</td>
+        <td (click)="populateForm(user)">{{user.password}}</td>
+        <td (click)="populateForm(user)">{{user.email}}</td>
+        <td (click)="populateForm(user)">{{user.firstName}}</td>
+        <td (click)="populateForm(user)">{{user.lastName}}</td>
+        <td> <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(user.id)"></i> </td>
+    </tr>
+</table>
+
