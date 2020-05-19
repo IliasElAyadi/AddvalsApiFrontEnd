@@ -26,7 +26,8 @@ export class CreateUserComponent implements OnInit {
       email: '',
       password: '',
       firstName: '',
-      lastName: ''
+      lastName: '',
+      token:' '
     }
   }  
 

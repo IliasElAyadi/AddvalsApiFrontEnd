@@ -27,10 +27,11 @@ export class SigninUserComponent implements OnInit {
     this.coApiService.formData = {
       id: 0,
       login: '',
-      email: "ok@ok.com",
+      email: " ",
       password: '',
-      firstName: "ok@ok.com",
-      lastName: "ok@ok.com"
+      firstName: " ",
+      lastName: " ",
+      token: " "
     }
   }
 
