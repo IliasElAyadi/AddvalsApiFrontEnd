@@ -18,6 +18,9 @@ import { RouterModule } from '@angular/router';
 import { AdminComponent } from './Views/admin/admin.component';
 import { ConnexionComponent } from './Views/connexion/connexion.component';
 import { WaitingComponent } from './Views/waiting/waiting.component';
+import { PasswordUserComponent } from './userComponent/password-user/password-user.component';
+import { PasswordComponent } from './Views/password/password.component';
+import { MailRedirectComponent } from './Views/mail-redirect/mail-redirect.component';
 
 
 
@@ -30,7 +33,10 @@ import { WaitingComponent } from './Views/waiting/waiting.component';
     AdminComponent,
     ConnexionComponent,
     SigninUserComponent,
-    WaitingComponent
+    WaitingComponent,
+    PasswordUserComponent,
+    PasswordComponent,
+    MailRedirectComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,18 @@
+
 import { Component, OnInit } from '@angular/core';
 import { CoApiService } from '../../Service/co-api.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-signin-user',
-  templateUrl: './signin-user.component.html',
-  styles: [
-  ]
+  selector: 'app-password-user',
+  templateUrl: './password-user.component.html',
+  styleUrls: ['./password-user.component.scss']
 })
-export class SigninUserComponent implements OnInit {
-  myName = 'test';
-  
+export class PasswordUserComponent implements OnInit {
   constructor(public coApiService: CoApiService, private router: Router) { 
   }
+
 
   ngOnInit() {
     this.resetForm();
@@ -22,31 +21,23 @@ export class SigninUserComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
-    this.coApiService.formData = {
-      id: 0,
+    this.coApiService.formDataPwd = {
       login: '',
-      email: " ",
       password: '',
-      firstName: " ",
-      lastName: " ",
-      tokenApi:' ',
-      TokenSkytap:' ',
-      idSkytap: ' ',
     }
   }
 
    onSubmit(form: NgForm) {
-    this.postUserSignIn(form);
+    this.putPassword(form);
   }
 
 
-  postUserSignIn(form: NgForm) {
-    this.coApiService.postUserSignIn().subscribe(
-      res => {
-        this.myName = res.url;
+  putPassword(form: NgForm) {
+    this.coApiService.putPassword().subscribe(
+      res => {       
       console.log(res);
         this.resetForm(form);
-        this.router.navigate(['/waiting'], { state: { skyTapUrl: res.url } });
+        this.router.navigate(['/connexion']);
       },
       err => { console.log(err); }
     )

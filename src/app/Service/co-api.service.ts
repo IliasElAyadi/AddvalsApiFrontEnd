@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
 import { UserSignIn } from '../Models/UserSignIn.model';
 import { Url } from '../Models/url';
+import { PasswordComponent } from '../Views/password/password.component';
+import { Password } from '../Models/password';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,7 @@ import { Url } from '../Models/url';
 export class CoApiService {
   
   formData: User;
+  formDataPwd: Password;
   //FormDataSignIn: UserSignIn;
   url: String;
   readonly rootURL = 'https://localhost:5001/api/user/';
@@ -28,6 +31,10 @@ export class CoApiService {
 
   postUser() {
     return this.http.post(this.rootURL, this.formData);
+  }
+
+  putPassword() {
+    return this.http.put(this.rootURL+"password", this.formDataPwd);
   }
 
   postUserSignIn() {

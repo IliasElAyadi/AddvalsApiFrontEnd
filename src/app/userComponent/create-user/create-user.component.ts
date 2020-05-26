@@ -24,13 +24,14 @@ export class CreateUserComponent implements OnInit {
       id: 0,
       login: '',
       email: '',
-      password: '',
+      password: 'random1000',
       firstName: '',
       lastName: '',
-      token:' '
+      tokenApi:' ',
+      TokenSkytap:' ',
+      idSkytap: ' ',
     }
   }  
-
    onSubmit(form: NgForm) {
 
     if (this.coApiService.formData.id == 0)
@@ -46,7 +47,7 @@ export class CreateUserComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.coApiService.refreshList();
-        this.router.navigate(['/connexion']);
+        this.router.navigate(['/MailRedirect']);
 
       },
       err => { console.log(err); }
@@ -58,7 +59,7 @@ export class CreateUserComponent implements OnInit {
       res => {
         this.resetForm(form);
         this.coApiService.refreshList();
-        this.router.navigate(['/connexion']);
+        this.router.navigate(['/']);
       },
       err => {
         console.log(err);

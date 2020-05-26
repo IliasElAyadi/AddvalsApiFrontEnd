@@ -20,9 +20,9 @@ export class WaitingComponent implements OnInit {
 
   constructor(private router: Router,public coApiService: CoApiService,private http: HttpClient) {
     this.skyTapUrl = this.router.getCurrentNavigation().extras.state.skyTapUrl;
-    //this.myName = this.skyTapUrl
+    
+    
    }
-
 
 /* 
     httpOptions = {
