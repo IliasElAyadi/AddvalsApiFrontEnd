@@ -24,14 +24,14 @@ export class SigninUserComponent implements OnInit {
       form.form.reset();
     this.coApiService.formData = {
       id: 0,
-      login: '',
-      email: " ",
+      login: "empty",
+      email: '',
       password: '',
-      firstName: " ",
-      lastName: " ",
-      tokenApi:' ',
-      TokenSkytap:' ',
-      idSkytap: ' ',
+      firstName: '',
+      lastName: '',
+      tokenApi:'',
+      TokenSkytap:'',
+      idSkytap: '',
     }
   }
 
@@ -46,6 +46,7 @@ export class SigninUserComponent implements OnInit {
         this.myName = res.url;
       console.log(res);
         this.resetForm(form);
+        
         this.router.navigate(['/waiting'], { state: { skyTapUrl: res.url } });
       },
       err => { console.log(err); }

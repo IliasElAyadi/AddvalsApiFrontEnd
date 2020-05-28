@@ -6,11 +6,11 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
-            <i class="fas fa-sign-in-alt" [class.green-icon]="login.valid" [class.red-icon]="login.invalid && login.touched"></i>
+            <i class="fas fa-sign-in-alt" [class.green-icon]="email.valid" [class.red-icon]="email.invalid && email.touched"></i>
           </div>
         </div>
-        <input name="login" #login="ngModel" [(ngModel)]="coApiService.formData.login" class="form-control"
-          placeholder="Login" required>
+        <input name="email" #email="ngModel" [(ngModel)]="coApiService.formData.email" class="form-control"
+          placeholder="Email" required>
       </div>
     </div>
 

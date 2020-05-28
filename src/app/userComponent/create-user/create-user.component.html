@@ -1,7 +1,8 @@
 
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
     <input type="hidden" name="id" [value]="coApiService.formData.id">
-    <div class="form-group">
+
+<!--     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
@@ -11,7 +12,7 @@
         <input name="login" #login="ngModel" [(ngModel)]="coApiService.formData.login" class="form-control"
           placeholder="Login" required>
       </div>
-    </div>
+    </div> -->
 
 <!--     <div class="form-group">
       <div class="input-group">
@@ -38,7 +39,7 @@
         </div>
       </div>
 
-      <div class="form-group">
+<!--       <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
@@ -60,7 +61,7 @@
           <input name="lastName" #lastName="ngModel" [(ngModel)]="coApiService.formData.lastName" 
           class="form-control" placeholder="LastName" required maxlength="50" minlength="2">
         </div>
-      </div>
+      </div> -->
 
     
     <div class="form-group">

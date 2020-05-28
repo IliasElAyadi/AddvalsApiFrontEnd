@@ -1,5 +1,5 @@
 export interface UserSignIn{
     id: number,
-    login: string,
+    email: string,
     password: string,
 }

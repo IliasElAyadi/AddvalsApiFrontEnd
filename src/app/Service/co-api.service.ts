@@ -34,7 +34,7 @@ export class CoApiService {
   }
 
   putPassword() {
-    return this.http.put(this.rootURL+"password", this.formDataPwd);
+    return this.http.put(this.rootURL+"profil", this.formData);
   }
 
   postUserSignIn() {

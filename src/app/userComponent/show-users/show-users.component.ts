@@ -22,7 +22,7 @@ export class ShowUsersComponent implements OnInit {
  
 
   onDelete(id) {
-    if (confirm('Are you sure to delete this record ?')) {
+    if (confirm('Are you sure to delete this user ?')) {
       this.coApiService.deleteUser(id)
         .subscribe(res => {
           this.coApiService.refreshList();

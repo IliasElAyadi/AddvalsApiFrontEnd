@@ -13,10 +13,10 @@ import { MailRedirectComponent } from './Views/mail-redirect/mail-redirect.compo
 const routes: Routes = [
   
   { path: 'admin', component: AdminComponent },
-  { path: 'inscription', component: InscriptionComponent },
+  /* { path: 'inscription', component: InscriptionComponent }, */
   { path: 'connexion', component: ConnexionComponent },
   { path: 'waiting', component: WaitingComponent },
-  { path: 'password', component: PasswordComponent },
+  { path: 'profil', component: PasswordComponent },
   { path: 'MailRedirect', component: MailRedirectComponent }
   
   

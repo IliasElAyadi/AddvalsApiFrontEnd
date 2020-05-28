@@ -13,7 +13,6 @@ export class PasswordUserComponent implements OnInit {
   constructor(public coApiService: CoApiService, private router: Router) { 
   }
 
-
   ngOnInit() {
     this.resetForm();
   }
@@ -21,9 +20,16 @@ export class PasswordUserComponent implements OnInit {
   resetForm(form?: NgForm) {
     if (form != null)
       form.form.reset();
-    this.coApiService.formDataPwd = {
-      login: '',
+    this.coApiService.formData = {
+      id: 0,
+      login: 'empty',
+      email: '',
       password: '',
+      firstName: 'empty',
+      lastName: 'empty',
+      tokenApi:'empty',
+      TokenSkytap:'empty',
+      idSkytap: 'empty',
     }
   }
 
