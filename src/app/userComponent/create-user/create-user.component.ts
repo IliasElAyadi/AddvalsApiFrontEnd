@@ -25,6 +25,7 @@ export class CreateUserComponent implements OnInit {
       login: 'login',
       email: '',
       password: 'random1000',
+      confirmPassword:'',
       firstName: '',
       lastName: '',
       tokenApi:'',

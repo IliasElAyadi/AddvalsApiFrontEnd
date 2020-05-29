@@ -3,14 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { CoApiService } from '../../Service/co-api.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import {ActivatedRoute, ParamMap } from '@angular/router';
+
+import { ConfirmEqualValidatorDirective } from 'src/app/shared/confirm-equal-validator.directive';
 
 @Component({
   selector: 'app-password-user',
   templateUrl: './password-user.component.html',
   styleUrls: ['./password-user.component.scss']
 })
+
 export class PasswordUserComponent implements OnInit {
-  constructor(public coApiService: CoApiService, private router: Router) { 
+
+  constructor(public coApiService: CoApiService, private router: Router, private route: ActivatedRoute) { 
   }
 
   ngOnInit() {
@@ -23,10 +29,11 @@ export class PasswordUserComponent implements OnInit {
     this.coApiService.formData = {
       id: 0,
       login: 'empty',
-      email: '',
+      email: this.route.snapshot.paramMap.get('email'),
       password: '',
-      firstName: 'empty',
-      lastName: 'empty',
+      confirmPassword:'',
+      firstName: '',
+      lastName: '',
       tokenApi:'empty',
       TokenSkytap:'empty',
       idSkytap: 'empty',

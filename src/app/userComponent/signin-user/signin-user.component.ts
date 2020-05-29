@@ -27,6 +27,7 @@ export class SigninUserComponent implements OnInit {
       login: "empty",
       email: '',
       password: '',
+      confirmPassword:'',
       firstName: '',
       lastName: '',
       tokenApi:'',

@@ -21,6 +21,7 @@ import { WaitingComponent } from './Views/waiting/waiting.component';
 import { PasswordUserComponent } from './userComponent/password-user/password-user.component';
 import { PasswordComponent } from './Views/password/password.component';
 import { MailRedirectComponent } from './Views/mail-redirect/mail-redirect.component';
+import { ConfirmEqualValidatorDirective } from 'src/app/shared/confirm-equal-validator.directive';
 
 
 
@@ -36,7 +37,8 @@ import { MailRedirectComponent } from './Views/mail-redirect/mail-redirect.compo
     WaitingComponent,
     PasswordUserComponent,
     PasswordComponent,
-    MailRedirectComponent
+    MailRedirectComponent,
+    ConfirmEqualValidatorDirective
   ],
   imports: [
     BrowserModule,

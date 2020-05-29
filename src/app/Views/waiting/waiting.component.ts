@@ -11,36 +11,37 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./waiting.component.scss']
 })
 export class WaitingComponent implements OnInit {
-  public skyTapUrl:string;
+  public skyTapUrl: string;
 
-  /* myName = 'test'
-  webPage: any;
-  readonly rootURL2 = 'https://cloud.skytap.com/configurations/85730906/desktop?vm_id=68042573';
- */
+  public show: boolean = false;
 
-  constructor(private router: Router,public coApiService: CoApiService,private http: HttpClient) {
+  timeLeft: number = 80;
+  interval;
+  /* myName = 'test' */
+
+
+  constructor(private router: Router, public coApiService: CoApiService, private http: HttpClient) {
     this.skyTapUrl = this.router.getCurrentNavigation().extras.state.skyTapUrl;
-    
-    
-   }
-
-/* 
-    httpOptions = {
-    headers: new HttpHeaders({
-
-
-      'Authorization': 'Basic ' + btoa('ili@ili.com:e32cab233318f4f29a3c87475a17d557da4f0714')
-    })
-  };
-   
-   getPage() {
-    this.webPage = this.http.get(this.rootURL2,this.httpOptions);
-  } */
-
-  ngOnInit(): void {
   }
 
-  public submit(): void { 
-     
-   } 
+  startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 0;
+      }
+    },1000)
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => { this.show = !this.show; }, 80000);
+    this.startTimer();
+  }
+
+
+  public submit(): void {
+
+  }
+
 }
