@@ -17,7 +17,7 @@ export class WaitingComponent implements OnInit {
 
   timeLeft: number = 80;
   interval;
-  /* myName = 'test' */
+  
 
 
   constructor(private router: Router, public coApiService: CoApiService, private http: HttpClient) {
