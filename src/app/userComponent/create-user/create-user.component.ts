@@ -3,6 +3,7 @@ import {CoApiService} from '../../Service/co-api.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
@@ -22,32 +23,39 @@ export class CreateUserComponent implements OnInit {
       form.form.reset();
     this.coApiService.formData = {
       id: 0,
-      login: 'login',
+      login: '/',
       email: '',
       password: 'random1000',
       confirmPassword:'',
       firstName: '',
       lastName: '',
+      company: '',
+      group: '',
       tokenApi:'',
-      TokenSkytap:'',
+      TokenSkytap:'/',
       idSkytap: '',
     }
   }  
    onSubmit(form: NgForm) {
 
     if (this.coApiService.formData.id == 0)
-      
+    {  
       this.postUser(form);
-      
-    else
+    }
+    else {
       this.putUser(form); 
+    }
+    
   }
   
   postUser(form: NgForm) {
     this.coApiService.postUser().subscribe(
       res => {
+      
         this.resetForm(form);
+       
         this.coApiService.refreshList();
+     
        // this.router.navigate(['/MailRedirect']);
 
       },
@@ -58,17 +66,14 @@ export class CreateUserComponent implements OnInit {
   putUser(form: NgForm) {
     this.coApiService.putUser().subscribe(
       res => {
+       
         this.resetForm(form);
         this.coApiService.refreshList();
-        this.router.navigate(['/']);
+        //this.router.navigate(['/']);
       },
       err => {
         console.log(err);
       }
     )
   }
-  
-
-  
-  
 }

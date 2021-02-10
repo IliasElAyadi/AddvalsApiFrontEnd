@@ -41,6 +41,10 @@ export class CoApiService {
     return this.http.post<Url>(this.rootURL+"signin", this.formData);
   }
 
+  postUserAuthenticate() {
+    return this.http.post<Url>(this.rootURL+"authenticate", this.formData);
+  }
+
   putUser() {
     return this.http.put(this.rootURL + this.formData.id, this.formData);
   } 

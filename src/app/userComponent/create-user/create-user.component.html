@@ -1,8 +1,7 @@
-
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-    <input type="hidden" name="id" [value]="coApiService.formData.id">
+  <input type="hidden" name="id" [value]="coApiService.formData.id">
 
-<!--     <div class="form-group">
+  <!--     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
@@ -14,7 +13,7 @@
       </div>
     </div> -->
 
-<!--     <div class="form-group">
+  <!--     <div class="form-group">
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text bg-white">
@@ -27,23 +26,81 @@
       </div>
     </div> -->
 
-    <div class="form-group">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text bg-white">
-              <i class="fas fa-at"  [class.green-icon]="email.valid" [class.red-icon]="email.invalid && email.touched"></i>
-            </div>
-          </div>
-          <input name="email" #email="ngModel" [(ngModel)]="coApiService.formData.email" 
-          class="form-control" placeholder="Email" required maxlength="50" minlength="2">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="firstName.valid"
+            [class.red-icon]="firstName.invalid && firstName.touched"></i>
         </div>
       </div>
-
-
-    
-    <div class="form-group">
-      
-      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> sign up
-      </button>
+      <input name="firstName" #firstName="ngModel" [(ngModel)]="coApiService.formData.firstName" class="form-control"
+        placeholder="FirstName" required maxlength="50" minlength="2">
     </div>
-  </form>
+  </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-user-circle" [class.green-icon]="lastName.valid"
+            [class.red-icon]="lastName.invalid && lastName.touched"></i>
+        </div>
+      </div>
+      <input name="lastName" #lastName="ngModel" [(ngModel)]="coApiService.formData.lastName" class="form-control"
+        placeholder="LastName" required maxlength="50" minlength="2">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-at" [class.green-icon]="email.valid" [class.red-icon]="email.invalid && email.touched"></i>
+        </div>
+      </div>
+      <input name="email" #email="ngModel" [(ngModel)]="coApiService.formData.email" class="form-control"
+        placeholder="Email" required maxlength="50" minlength="2">
+    </div>
+  </div>
+
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="far fa-building" [class.green-icon]="company.valid"
+            [class.red-icon]="company.invalid && company.touched"></i>
+        </div>
+      </div>
+      <input name="company" #company="ngModel" [(ngModel)]="coApiService.formData.company" class="form-control"
+        placeholder="Company" required maxlength="50" minlength="2">
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+          <i class="fas fa-users"></i>
+        </div>
+      </div>
+      <select id="1" name="group" #group="ngModel" [(ngModel)]="coApiService.formData.group" class="form-control">
+        <option value="1">Group 1</option>
+        <option value="2">Group 2</option>
+        <option value="3">Group 3</option>
+        <option value="4">Group 4</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i
+        class="fas fa-database"></i> sign up
+    </button>
+  </div>
+</form>

@@ -7,17 +7,19 @@ import { ConnexionComponent } from './Views/connexion/connexion.component';
 import { WaitingComponent } from './Views/waiting/waiting.component';
 import { PasswordComponent } from './Views/password/password.component';
 import { MailRedirectComponent } from './Views/mail-redirect/mail-redirect.component';
+import { AuthGuard } from 'src/guards/auth-guard.service';
 
 
 
 
 const routes: Routes = [
   
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard]}, 
   /* { path: 'inscription', component: InscriptionComponent }, */
   { path: 'connexion', component: ConnexionComponent },
-  { path: 'waiting', component: WaitingComponent },
+  { path: 'waiting', component: WaitingComponent, canActivate: [AuthGuard]},
   { path: 'profil/:email', component: PasswordComponent },
+
  /*  { path: 'MailRedirect', component: MailRedirectComponent } */
   
   

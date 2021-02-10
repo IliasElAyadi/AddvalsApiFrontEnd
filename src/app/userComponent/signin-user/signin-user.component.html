@@ -14,16 +14,20 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [class.has-error]="password.touched && password.invalid">
       <div class="input-group">
         <div class="input-group-prepend">
-          <div class="input-group-text bg-white">      
-            <i class="fas fa-key" [class.green-icon]="password.valid" [class.red-icon]="password.invalid && password.touched"></i>
+          <div class="input-group-text bg-white">
+            <i class="fas fa-key" [class.green-icon]="password.valid"
+              [class.red-icon]="password.invalid && password.touched"></i>
           </div>
         </div>
-        <input name="password" #password="ngModel" [(ngModel)]="coApiService.formData.password" 
-        class="form-control" placeholder="Password" required maxlength="50" minlength="2">
+        <input id="password" required type="text" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Password"
+          class="form-control" name="password" [(ngModel)]="coApiService.formData.password" #password="ngModel" type="password">
+        <span class="help-block" *ngIf="password.touched && password.errors?.required"> Your password must be at least 8
+          characters long and at least one number and one uppercase letter</span>
       </div>
+      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password </div>
     </div>
 
 

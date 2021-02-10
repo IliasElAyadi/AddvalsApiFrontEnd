@@ -2,26 +2,20 @@
 
     <tr>
         <td>id</td>
-        <!-- <td>login</td> -->
-        <!-- <td>password</td> -->
         <td>email</td>
-         <td>firstName</td>
+        <td>firstName</td>
         <td>lastName</td>
-      <!-- <td>tokenApi</td>
-        <td>TokenSkytap</td> -->
-        <td>idSkytap</td>
+        <td>Company</td>
+        <td>Group</td>
     </tr>
 
     <tr *ngFor="let user of coApiService.list">
         <td (click)="populateForm(user)">{{user.id}}</td>
-        <!--  <td (click)="populateForm(user)">{{user.login}}</td>
-        <td (click)="populateForm(user)">{{user.password}}</td> -->
         <td (click)="populateForm(user)">{{user.email}}</td>
         <td (click)="populateForm(user)">{{user.firstName}}</td>
         <td (click)="populateForm(user)">{{user.lastName}}</td>
-<!--         <td (click)="populateForm(user)">{{user.tokenApi}}</td>
-        <td (click)="populateForm(user)">{{user.TokenSkytap}}</td> --> 
-        <td (click)="populateForm(user)">{{user.idSkytap}}</td>
+        <td (click)="populateForm(user)">{{user.company}}</td>
+        <td (click)="populateForm(user)">{{user.group}}</td>
         <td> <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(user.id)"></i> </td>
     </tr>
 </table>

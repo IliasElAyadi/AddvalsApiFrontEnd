@@ -1,9 +1,10 @@
 
 
 <h1 style="text-align:left" class="display-4 text-center">Admin</h1>
+<button *ngIf="isAuthenticated" class="btn btn-danger my-2 my-sm-0" (click)="logOut()">Logout</button>
     <hr> 
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
+    
     <div class="row">
       <div class="col-md-4">
         <app-create-user></app-create-user>

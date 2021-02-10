@@ -17,6 +17,7 @@ export class WaitingComponent implements OnInit {
 
   timeLeft: number = 80;
   interval;
+  isAuthenticated: boolean;
   
 
 
@@ -37,8 +38,21 @@ export class WaitingComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => { this.show = !this.show; }, 80000);
     this.startTimer();
+
+    if (localStorage.getItem("jwt")) {
+      this.isAuthenticated = true;
+    }
+    else {
+      this.isAuthenticated = false;
+    }
   }
 
+  logOut() {
+    localStorage.removeItem("jwt");
+    this.router.navigate(['/connexion']);
+  }
+
+  
 
   public submit(): void {
 

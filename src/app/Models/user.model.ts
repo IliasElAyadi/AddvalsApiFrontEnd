@@ -6,6 +6,8 @@ export interface User{
     email: string,
     firstName: string,
     lastName: string,
+    company: string,
+    group: string,
     TokenSkytap: string,
     idSkytap: string,
     tokenApi: string,

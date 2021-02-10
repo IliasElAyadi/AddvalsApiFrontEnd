@@ -14,13 +14,11 @@ export class ShowUsersComponent implements OnInit {
   ngOnInit() {
     this.coApiService.refreshList();
   } 
-
   
   populateForm(selectUser) {
     this.coApiService.formData = Object.assign({}, selectUser);
   }
  
-
   onDelete(id) {
     if (confirm('Are you sure to delete this user ?')) {
       this.coApiService.deleteUser(id)

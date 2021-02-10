@@ -10,6 +10,7 @@ import { ShowUsersComponent } from './userComponent/show-users/show-users.compon
 import { CreateUserComponent } from './userComponent/create-user/create-user.component';
 import { SigninUserComponent } from './userComponent/signin-user/signin-user.component';
 
+import {JwtModule} from '@auth0/angular-jwt';
 
 import { FormsModule } from '@angular/forms';
 import { InscriptionComponent } from './Views/inscription/inscription.component';
@@ -22,8 +23,13 @@ import { PasswordUserComponent } from './userComponent/password-user/password-us
 import { PasswordComponent } from './Views/password/password.component';
 import { MailRedirectComponent } from './Views/mail-redirect/mail-redirect.component';
 import { ConfirmEqualValidatorDirective } from 'src/app/shared/confirm-equal-validator.directive';
+import { from } from 'rxjs';
+import { AuthGuard } from 'src/guards/auth-guard.service';
+import { ToastrModule } from 'ngx-toastr';
 
-
+export function tokenGetter() {
+  return localStorage.getItem("jwt");
+}
 
 @NgModule({
   declarations: [
@@ -45,10 +51,21 @@ import { ConfirmEqualValidatorDirective } from 'src/app/shared/confirm-equal-val
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot(),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ["localhost:5000","localhost:5001"],
+        blacklistedRoutes: []
+      }
+    })
+
 
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
