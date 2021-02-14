@@ -85,14 +85,14 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-          <i class="fas fa-users"></i>
+          <i class="fas fa-users" [class.green-icon]="group.valid" [class.red-icon]="group.invalid && group.touched"></i>
         </div>
       </div>
-      <select id="1" name="group" #group="ngModel" [(ngModel)]="coApiService.formData.group" class="form-control">
-        <option value="1">Group 1</option>
-        <option value="2">Group 2</option>
-        <option value="3">Group 3</option>
-        <option value="4">Group 4</option>
+      <select id="selecteur" name="group" #group="ngModel" [(ngModel)]="coApiService.formData.group" class="form-control" >
+        <option value="" disabled selected hidden>Group</option>
+        <option value="Internal" >Internal user</option>
+        <option value="External">External user</option>
+        
       </select>
     </div>
   </div>

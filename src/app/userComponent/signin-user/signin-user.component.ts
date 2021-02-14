@@ -58,7 +58,6 @@ export class SigninUserComponent implements OnInit {
     this.postUserAuthenticate(form);
   }
 
-
   postUserAuthenticate(form: NgForm) {
     this.coApiService.postUserAuthenticate().subscribe(
       res => {

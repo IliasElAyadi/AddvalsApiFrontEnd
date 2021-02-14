@@ -19,6 +19,7 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'waiting', component: WaitingComponent, canActivate: [AuthGuard]},
   { path: 'profil/:email', component: PasswordComponent },
+  { path: '',   redirectTo: '/connexion', pathMatch: 'full' }, // redirect to `connexion`
 
  /*  { path: 'MailRedirect', component: MailRedirectComponent } */
   
